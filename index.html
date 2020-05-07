@@ -56,7 +56,7 @@
         
         distance = Math.sqrt(dx*dx+dy*dy);
         vol = 1 - (distance/2202);
-        vol = vol.toFixed(1)+0.1;
+        vol = vol.toFixed(1);
         console.log("Dist: " + distance);
         console.log("Vol: " + vol);
         knock_sound.volume = parseFloat(vol);
