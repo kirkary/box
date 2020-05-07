@@ -33,13 +33,29 @@
     }
     
     function init()
-	{
+    {
+    	find = false;
+    	cw = document.getElementById("canvas-wrapper");
         canvas = document.getElementById("wall");
         ctx = canvas.getContext("2d");
+        ctx.globalAlpha = 0.0;
         knock_sound = document.getElementById("audio_wall");
+        
+      	base_image = new Image();
+	base_image.src = 'c2.jpeg';
+        im_width = base_image.naturalWidth;
+  	im_height = base_image.naturalHeight;
+        ctx.drawImage(base_image, 0,0);
+        base_image.onload = function(){
+        	ctx.drawImage(base_image, 0, 300);
+         }
+        
+        // knock = new Audio("bounce.mp3");
+        // knock.preload = 'auto';
+        // knock.load();
 
         var width = canvas.width;
-        var height = canvas.height
+        var height = canvas.height;
 
         random_x = getRandomInt(80,width);
         random_y = getRandomInt(80,height);
@@ -55,12 +71,20 @@
         dy=random_y-e.clientY;
         
         distance = Math.sqrt(dx*dx+dy*dy);
-        vol = 1 - (distance/2202);
-        vol = vol.toFixed(1);
-        console.log("Dist: " + distance);
-        console.log("Vol: " + vol);
-        knock_sound.volume = parseFloat(vol)+0.1;
-        knock_sound.play();
+        if (distance >= 80 && find == false)
+        {
+          vol = 1 - (distance/2202);
+          vol = vol.toFixed(1);
+          console.log("Dist: " + distance);
+          console.log("Vol: " + vol);
+          knock_sound.volume = parseFloat(vol);
+          knock_sound.play();
+        }
+        else {
+            ctx.globalAlpha = 1.0;
+        	ctx.drawImage(base_image, width/2-im_width/2, height/2-im_height/2);
+            find = true;
+        }
         })
     }
 
