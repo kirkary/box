@@ -41,9 +41,8 @@
         knock_sound = document.getElementById("audio_wall");
 	source = document.getElementById('audio_wall_src');
         
-	canvas_bounds = canvas.getBoundingClientRect();
-        width = canvas_bounds.width;
-        height = canvas_bounds.height;
+	var width = canvas.width = canvas.clientWidth;
+	var height = canvas.height = canvas.clientHeight;
 	          
         random_x = getRandomInt(80,width);
         random_y = getRandomInt(80,height);
