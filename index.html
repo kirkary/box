@@ -75,7 +75,7 @@
         }
         else {
 		source.src='rocks.mp3';
-		audio.load();
+		knock_sound.load();
             	var base_image = new Image();
         	base_image.src = 'c2.jpeg';
         	base_image.onload = function(){
@@ -83,7 +83,7 @@
         		y = (canvas.height - this.height) * 0.5;
         	ctx.drawImage(base_image,x ,y);
          	}
-		audio.play();
+		knock_sound.play();
             find = true;
         }
         })
