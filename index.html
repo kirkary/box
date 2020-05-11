@@ -74,9 +74,7 @@
         }
         else {
 		source.src='rocks.mp3';
-		knock_sound.load();
 		knock_sound.play();
-		await new Promise(r => setTimeout(r, 500));
             	var base_image = new Image();
         	base_image.src = 'c2.jpeg';
         	base_image.onload = function(){
