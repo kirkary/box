@@ -81,7 +81,7 @@
         	base_image.onload = function(){
    		var x = (canvas.width  - this.width ) * 0.5,
         		y = (canvas.height - this.height) * 0.5;
-        	ctx.drawImage(base_image,x ,y);
+        	ctx.drawImage(base_image,x ,y, base_image.naturalWidth,base_image.naturalHeight);
          	}
 		knock_sound.play();
             find = true;
