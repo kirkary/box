@@ -73,8 +73,7 @@
           else if (distance > 200){ vol=0.7;}
           else if (distance > 140){ vol=1.0;}
           else {vol=1.0;}
-          console.log("Dist: " + distance);
-          console.log("Vol: " + vol);
+
           knock_sound.volume = parseFloat(vol);
           knock_sound.play();
         }
