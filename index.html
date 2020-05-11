@@ -24,6 +24,9 @@
 <audio id="audio_wall" preload="auto" controls="none" crossOrigin="anonymous" style="position:absolute; top:-100px;">
 <source id="audio_wall_src" src="knock_1.mp3" type="audio/mp3" display="none">
 </audio>
+<audio id="audio_wall_2" preload="auto" controls="none" crossOrigin="anonymous" style="position:absolute; top:-100px;">
+<source id="audio_wall_src_2" src="rock.mp3" type="audio/mp3" display="none">
+</audio>
     
 <script>
 
@@ -40,6 +43,9 @@
         ctx = canvas.getContext("2d");
         knock_sound = document.getElementById("audio_wall");
 	source = document.getElementById('audio_wall_src');
+	    
+	    
+        sound_2 = document.getElementById("audio_wall_2");
         
 	var width = canvas.width = canvas.clientWidth;
 	var height = canvas.height = canvas.clientHeight;
@@ -73,9 +79,7 @@
           knock_sound.play();
         }
         else {
-		source.src='rocks.mp3';
-		knock_sound.load();
-		knock_sound.play();
+		sound_2.play();
             	var base_image = new Image();
         	base_image.src = 'c2.jpeg';
         	base_image.onload = function(){
